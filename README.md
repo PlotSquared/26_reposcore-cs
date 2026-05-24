@@ -39,8 +39,6 @@ dotnet run -- --help
 
 ## Synopsis
 
-<!-- synopsis:start -->
-
 ```text
 Usage: reposcore-cs [--token <String>] [--claims <ClaimsMode>] [--format <OutputFormat>] [--output <String>] [--sort-by <SortBy>] [--sort-order <SortOrder>] [--keywords <String>] [--no-cache] [--help] [--version] repos0 ... reposN
 
@@ -62,8 +60,6 @@ Options:
   --version                      Show version
 ```
 
-<!-- synopsis:end -->
-
 ## Synopsis 업데이트
 
 Synopsis 섹션은 CLI 도움말을 자동으로 반영합니다. 프로그램 옵션 또는 실행 방식이 변경되면 다음 명령어로 업데이트하세요:
@@ -71,6 +67,7 @@ Synopsis 섹션은 CLI 도움말을 자동으로 반영합니다. 프로그램 �
 ```bash
 # 개별 업데이트
 python tools/update-synopsis.py
+python tools/j2render.py README-template.md.j2 vars/synopsis.json -o README.md
 
 # 또는 Makefile로
 make synopsis
@@ -80,7 +77,7 @@ make
 ```
 
 > ⚠️ `README.md`를 직접 수정하지 마세요.
-> 수동 편집 내용은 `README-template.md`에서 관리하며, `README.md`는 `tools/update-synopsis.py`를 통해 자동 생성됩니다.
+> 수동 편집 내용은 `README-template.md.j2`에서 관리하며, `README.md`는 `tools/j2render.py`를 통해 자동 생성됩니다.
 > 프로그램 옵션, 인수, 또는 도움말 출력이 변경된 경우 반드시 위 명령어를 실행하여 `README.md`를 다시 생성하세요.
 
 ## 참고자료
